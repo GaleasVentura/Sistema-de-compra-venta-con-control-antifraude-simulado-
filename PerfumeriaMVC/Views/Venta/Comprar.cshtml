@@ -1,0 +1,15 @@
+@model PerfumeriaMVC.Models.Productos
+
+<h2>Comprar productos</h2>
+
+<form method="post" action="/Venta/ConfirmarCompra">
+    <input type="hidden" name="id_productos" value="@Model.id_producto" />
+
+    <p>productos: @Model.nombre</p>
+    <p>Precio: @Model.precio</p>
+
+    <label>Cantidad:</label>
+    <input type="number" name="cantidad" value="1" min="1" />
+
+    <button type="submit">Confirmar compra</button>
+</form>

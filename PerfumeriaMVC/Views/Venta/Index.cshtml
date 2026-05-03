@@ -1,0 +1,26 @@
+@model List<PerfumeriaMVC.Models.Productos>
+
+<h2>Catálogo de productos</h2>
+
+<table border="1">
+    <tr>
+        <th>productos</th>
+        <th>Marca</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Acción</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.nombre</td>
+        <td>@item.marca</td>
+        <td>@item.precio</td>
+        <td>@item.stock</td>
+        <td>
+            <a href="/Venta/Comprar/@item.id_producto">Comprar</a>
+        </td>
+    </tr>
+}
+</table>
