@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detección de Anomalías - Alerta</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .navbar {
+            background-color: #4b0082;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .navbar a:hover {
+            background-color: #6a0dad;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-contenido {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 35px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .icono-alerta-grande {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .titulo-alerta {
+            color: #b22222;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        
+        .detalle-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            text-align: left;
+        }
+        
+        .detalle-label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .detalle-valor {
+            color: #666;
+        }
+        
+        .botones-modal {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .btn-cancelar {
+            flex: 1;
+            background-color: #ffffff;
+            color: #6a0dad;
+            border: 2px solid #6a0dad;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        
+        .btn-cancelar:hover {
+            background-color: #f3e8ff;
+        }
+        
+        .btn-confirmar {
+            flex: 1;
+            background-color: #6a0dad;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        
+        .btn-confirmar:hover {
+            background-color: #4b0082;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="deteccion-anomalias.html">Detección de Anomalías</a>
+        <a href="reporte-antifraude.html">Reporte Antifraude</a>
+        <a href="perfil-usuario.html">Perfil de Usuario</a>
+    </nav>
+
+    <div class="modal-overlay">
+        <div class="modal-contenido">
+            <div class="icono-alerta-grande">🚨</div>
+            <h2 class="titulo-alerta">¡Alerta!</h2>
+            
+            <div>
+                <div class="detalle-item">
+                    <span class="detalle-label">Producto:</span>
+                    <span class="detalle-valor">Perfume A</span>
+                </div>
+                <div class="detalle-item">
+                    <span class="detalle-label">Cliente:</span>
+                    <span class="detalle-valor">Ana Perez</span>
+                </div>
+                <div class="detalle-item">
+                    <span class="detalle-label">Monto:</span>
+                    <span class="detalle-valor">$150.00</span>
+                </div>
+            </div>
+            
+            <div class="botones-modal">
+                <button class="btn-cancelar" onclick="window.location.href='deteccion-anomalias.html'">
+                    Cancelar
+                </button>
+                <button class="btn-confirmar" onclick="window.location.href='reporte-antifraude.html'">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
