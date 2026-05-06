@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detección de Anomalías</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .navbar {
+            background-color: #4b0082;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .navbar a:hover {
+            background-color: #6a0dad;
+        }
+        
+        .contenedor-dashboard {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .titulo-seccion {
+            text-align: center;
+            color: #4b0082;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .tarjeta-alerta {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        
+        .banner-alerta {
+            background-color: #b22222;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .icono-alerta {
+            font-size: 24px;
+        }
+        
+        .detalle-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .detalle-label {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .detalle-valor {
+            color: #666;
+        }
+        
+        .btn-revisar {
+            background-color: #6a0dad;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        .btn-revisar:hover {
+            background-color: #4b0082;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="Inicio.html">Volver a la Tienda</a>
+        <a href="deteccion-anomalias.html">Detección de Anomalías</a>
+        <a href="reporte-antifraude.html">Reporte Antifraude</a>
+        <a href="perfil-usuario.html">Perfil de Usuario</a>
+    </nav>
+
+    <div class="contenedor-dashboard">
+        <h1 class="titulo-seccion">Detección de Anomalías</h1>
+        
+        <div class="tarjeta-alerta">
+            <div class="banner-alerta">
+                <span class="icono-alerta">⚠️</span>
+                <span>¡Alerta! Venta Duplicada Detectada</span>
+            </div>
+            
+            <div>
+                <div class="detalle-item">
+                    <span class="detalle-label">Producto:</span>
+                    <span class="detalle-valor">Perfume A</span>
+                </div>
+                <div class="detalle-item">
+                    <span class="detalle-label">Cliente:</span>
+                    <span class="detalle-valor">Ana Perez</span>
+                </div>
+                <div class="detalle-item">
+                    <span class="detalle-label">Monto:</span>
+                    <span class="detalle-valor">$150.00</span>
+                </div>
+            </div>
+            
+            <button class="btn-revisar" onclick="window.location.href='deteccion-modal.html'">
+                Revisar Detalles
+            </button>
+        </div>
+    </div>
+</body>
+</html>
