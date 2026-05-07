@@ -1,0 +1,43 @@
+@model List<PerfumeriaMVC.Models.Compra>
+
+@{
+    ViewData["Title"] = "Compras Empleado";
+}
+
+<div class="container mt-4">
+
+    <h2>💳 Compras del sistema</h2>
+
+    <table class="table table-bordered table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID Compra</th>
+                <th>ID Usuario</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.id_compra</td>
+                    <td>@item.id_usuario</td>
+                    <td>@item.fecha_compra</td>
+                    <td>$@item.total</td>
+                    <td>@item.estado</td>
+                    <td>
+                        <a class="btn btn-info btn-sm"
+                           href="/Empleado/DetalleCompra/@item.id_compra">
+                            🔍 Ver detalle
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

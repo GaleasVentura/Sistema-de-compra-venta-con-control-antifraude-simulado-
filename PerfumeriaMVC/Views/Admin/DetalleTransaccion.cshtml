@@ -1,0 +1,50 @@
+@model List<PerfumeriaMVC.Models.DetalleTransaccionViewModel>
+
+<div class="container mt-5">
+
+    <div class="card detalle-card">
+
+        <h2 class="detalle-title">🧾 Detalle de Transacción</h2>
+
+        <table class="table detalle-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{
+                    decimal total = 0;
+                }
+
+                @foreach (var item in Model)
+                {
+                    total += item.subtotal;
+
+                    <tr>
+                        <td>@item.producto</td>
+                        <td>@item.cantidad</td>
+                        <td>$@item.precio</td>
+                        <td class="fw-bold">$@item.subtotal</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="detalle-footer">
+            <h4>Total: <span class="total-amount">$@total</span></h4>
+
+            <a class="btn btn-secondary"
+               onclick="return confirmarVolver()"
+               href="/Admin/TransaccionesSospechosas">
+                ⬅ Volver
+            </a>
+        </div>
+
+    </div>
+
+</div>

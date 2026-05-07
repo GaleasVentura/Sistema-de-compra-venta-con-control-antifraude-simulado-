@@ -1,0 +1,49 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - Perfumería</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+
+<div class="contenedor-login">
+
+    <div class="lado-derecho">
+
+        <form asp-action="Register" asp-controller="Account" method="post">
+
+            <h2>Crear cuenta</h2>
+
+            <label>Nombre</label>
+            <input type="text" name="nombre" required>
+
+            <label>Correo</label>
+            <input type="email" name="correo" required>
+
+            <label>Contraseña</label>
+            <input type="password" name="password" required>
+
+            <button type="submit" class="boton">Registrarse</button>
+
+            <div class="link-abajo">
+                <a href="/Account/Login">Ya tengo cuenta</a>
+            </div>
+
+            @if (ViewBag.Error != null)
+            {
+                <p style="color:red">@ViewBag.Error</p>
+            }
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

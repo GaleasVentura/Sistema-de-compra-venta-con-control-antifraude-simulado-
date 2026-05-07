@@ -1,24 +1,26 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using PerfumeriaMVC.Models;
+using PerfumeriaMVC.Data;
 
-namespace PerfumeriaMVC.Controllers;
-
-public class HomeController : Controller
+namespace PerfumeriaMVC.Controllers
 {
-    public IActionResult Index()
+    public class HomeController : Controller
     {
-        return View();
-    }
+        private readonly Perfumeriadb _context;
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+        public HomeController(Perfumeriadb context)
+        {
+            _context = context;
+        }
+        public IActionResult Index()
+        {
+            var usuario = HttpContext.Session.GetString("usuario");
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (usuario == null)
+                return RedirectToAction("Login", "Account");
+
+            var productos = _context.Productos.ToList();
+            return View(productos);
+        }
+
     }
 }

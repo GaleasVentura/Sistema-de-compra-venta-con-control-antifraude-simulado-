@@ -1,0 +1,26 @@
+@model List<PerfumeriaMVC.Models.Compra>
+
+<h2>💳 Ventas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Total</th>
+            <th>tiene_oferta</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.id_compra</td>
+            <td>$@v.id_usuario</td>
+            <td>$@v.total</td>
+            <td>@v.fecha_compra</td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -10,9 +10,20 @@ namespace PerfumeriaMVC.Data
         {
         }
 
-        public DbSet<Usuario> usuarios { get; set; }
-        public DbSet<Productos> productos { get; set; }
-        public DbSet<Compra> compra { get; set; }
-        public DbSet<DetalleCompra> detalle_compra { get; set; }
+        // 🔥 IMPORTANTE: NOMBRES EN MAYÚSCULA
+        public DbSet<Usuario> Usuarios { get; set; }
+
+        public DbSet<Productos> Productos { get; set; }
+
+        public DbSet<Compra> Compra { get; set; }
+
+        public DbSet<DetalleCompra> DetalleCompra { get; set; }
+
+        public DbSet<Revision> Revision { get; set; }
+        public DbSet<EvaluacionFraude> EvaluacionFraude { get; set; }
+
+         public DbSet<Descuento> Descuentos { get; set; }
+
+
     }
 }

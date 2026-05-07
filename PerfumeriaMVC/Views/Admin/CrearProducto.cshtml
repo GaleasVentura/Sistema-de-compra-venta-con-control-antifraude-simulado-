@@ -1,0 +1,36 @@
+<form asp-action="CreateProductos" method="post">
+
+    <!-- NOMBRE -->
+    <input name="nombre" placeholder="Nombre producto" class="form-control" />
+    <br />
+
+    <!-- PRECIO -->
+    <input name="precio" type="number" step="0.01"
+           placeholder="Precio" class="form-control" />
+    <br />
+
+    <!-- STOCK -->
+    <input name="stock" type="number"
+           placeholder="Stock" class="form-control" />
+    <br />
+
+    <!-- OFERTA -->
+    <label>¿Tiene oferta?</label>
+    <select name="tiene_oferta" class="form-control">
+        <option value="false">No</option>
+        <option value="true">Sí</option>
+    </select>
+
+    <br />
+
+    <!-- IMAGEN -->
+    <input name="imagen_url" placeholder="Imagen (ej: perfume.png)"
+           class="form-control" />
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">
+        Guardar
+    </button>
+
+</form>

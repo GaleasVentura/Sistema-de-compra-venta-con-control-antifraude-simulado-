@@ -16,58 +16,58 @@ namespace PerfumeriaMVC.Controllers
         // lista de productos para comprar 
         public IActionResult Index()
         {
-            var productos = _context.productos.ToList();
+            var productos = _context.Productos.ToList();
             return View(productos);
         }
         // metodo para la compra
         public IActionResult Comprar(int id)
         {
-          var productos = _context.productos.Find(id);
+            var productos = _context.Productos.Find(id);
 
-          if (productos == null)
-          return NotFound();
+            if (productos == null)
+                return NotFound();
 
-          return View(productos);
+            return View(productos);
         }
-        
+
         [HttpPost]
-public IActionResult ConfirmarCompra(int id_productos, int cantidad)
-{
-    var productos = _context.productos.Find(id_productos);
+        public IActionResult ConfirmarCompra(int id_productos, int cantidad)
+        {
+            var productos = _context.Productos.Find(id_productos);
 
-    if (productos == null)
-        return NotFound();
+            if (productos == null)
+                return NotFound();
 
-    // 1. Crear compra
-    var compra = new Compra
-    {
-        id_usuario = 1, // temporal (luego login)
-        fecha_compra = DateTime.Now,
-        total = productos.precio * cantidad,
-        estado = "PENDIENTE"
-    };
+            // 1. Crear compra
+            var compra = new Compra
+            {
+                id_usuario = 1, // temporal (luego login)
+                fecha_compra = DateTime.Now,
+                total = productos.precio * cantidad,
+                estado = "PENDIENTE"
+            };
 
-    _context.compra.Add(compra);
-    _context.SaveChanges();
+            _context.Compra.Add(compra);
+            _context.SaveChanges();
 
-    // 2. Crear detalle
-    var detalle = new DetalleCompra
-    {
-        id_compra = compra.id_compra,
-        id_productos = productos.id_producto,
-        cantidad = cantidad,
-        precio = productos.precio,
-        subtotal = productos.precio * cantidad
-    };
+            // 2. Crear detalle
+            var detalle = new DetalleCompra
+            {
+                id_compra = compra.id_compra,
+                id_productos = productos.id_producto,
+                cantidad = cantidad,
+                precio = productos.precio,
+                subtotal = productos.precio * cantidad
+            };
 
-    _context.detalle_compra.Add(detalle);
+            _context.DetalleCompra.Add(detalle);
 
-    // 3. Descontar stock
-    productos.stock -= cantidad;
+            // 3. Descontar stock
+            productos.stock -= cantidad;
 
-    _context.SaveChanges();
+            _context.SaveChanges();
 
-    return RedirectToAction("Index", "productos");
-}
+            return RedirectToAction("Index", "productos");
+        }
     }
 }

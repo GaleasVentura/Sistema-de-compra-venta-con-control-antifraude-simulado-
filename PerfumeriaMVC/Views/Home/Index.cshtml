@@ -1,8 +1,37 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<PerfumeriaMVC.Models.Productos>
+@foreach (var item in Model)
+{
+    <img src="~/Imagenes/@item.imagen_url" />
 }
+<link rel="stylesheet" href="~/css/home.css" />
+<section class="text-center">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h2>Más Vendidos</h2>
+    <p>Los perfumes más populares de nuestra tienda</p>
+
+    <div class="row">
+
+        @foreach (var item in Model.Take(4))
+        {
+            <div class="col-md-3">
+                <div class="card p-2">
+
+                    <img src="~/Imagenes/@item.imagen_url" class="img-fluid" />
+
+                    <h5>@item.nombre</h5>
+                    <p>$@item.precio</p>
+
+                    <a asp-controller="Carrito"
+                       asp-action="Agregar"
+                       asp-route-id="@item.id_producto"
+                       class="btn btn-success">
+                        Agregar
+                    </a>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+</section>

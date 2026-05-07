@@ -1,0 +1,75 @@
+@model List<PerfumeriaMVC.Models.Productos>
+
+<div class="container mt-5">
+
+    <div class="card productos-card">
+
+        <div class="productos-header">
+            <h2>🛍️ Gestión de Productos</h2>
+
+            <a href="/Admin/CrearProducto" class="btn btn-success">
+                ➕ Nuevo
+            </a>
+        </div>
+
+        <table class="table productos-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>
+                                @p.nombre
+
+                                @if (p.tiene_oferta == true)
+                                {
+                                    <span class="badge bg-danger">OFERTA 🔥</span>
+                                }
+                            </td>
+
+                            <td>@p.marca</td>
+
+                            <td class="precio">$@p.precio.ToString("0.00")</td>
+
+                            <td>@p.stock</td>
+
+                            <td>
+                                @(p.tiene_oferta == true ? "En oferta" : "Normal")
+                            </td>
+
+                            <td>
+                                <a class="btn btn-danger btn-sm"
+                                   onclick="return confirmarEliminar()"
+                                   href="/Admin/EliminarProducto/@p.id_producto">
+                                    🗑
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            No hay productos disponibles
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

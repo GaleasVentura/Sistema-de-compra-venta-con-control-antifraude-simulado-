@@ -13,6 +13,7 @@ namespace PerfumeriaMVC.Models
 
         public decimal total { get; set; }
 
-        public string estado { get; set; }
+        public required string estado { get; set; }
+
     }
 }

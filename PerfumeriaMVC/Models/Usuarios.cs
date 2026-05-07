@@ -7,16 +7,16 @@ namespace PerfumeriaMVC.Models
         [Key]
         public int id_usuario { get; set; }
 
-        public string nombre { get; set; }
+        public string nombre { get; set; } = "";
 
-        public string correo { get; set; }
+        public string correo { get; set; } = "";
 
-        public string password { get; set; }
+        public string password { get; set; } = "";
 
-        public string estado { get; set; }
+        public int intentos_fallidos { get; set; } = 0;
 
-        public int intentos_fallidos { get; set; }
+        public DateTime fecha_registro { get; set; } = DateTime.Now;
 
-        public DateTime fecha_registro { get; set; }
+        public string? rol { get; set; }
     }
 }

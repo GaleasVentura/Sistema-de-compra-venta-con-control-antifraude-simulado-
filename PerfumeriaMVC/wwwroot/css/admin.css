@@ -1,0 +1,260 @@
+/* 🌈 Fondo general */
+body {
+    background: linear-gradient(to right, #f8f9fa, #fdf6f0);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🧾 Cards */
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 🎨 Colores pastel */
+.bg-pastel-blue {
+    background-color: #a8d8ea;
+}
+
+.bg-pastel-green {
+    background-color: #b8e0d2;
+}
+
+.bg-pastel-pink {
+    background-color: #fbc4ab;
+}
+
+.bg-pastel-yellow {
+    background-color: #f9f7d9;
+}
+
+/* 🔘 Botones */
+.btn {
+    border-radius: 20px;
+    padding: 8px 20px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* 📋 Inputs */
+.form-control {
+    border-radius: 10px;
+}
+
+/* 🚨 Badges */
+.badge-sospechosa {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+/*crear empleados*/
+
+/*  FORMULARIO */
+.form-card {
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #fdf6f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ✏️ Títulos */
+.form-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-subtitle {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* 🔘 Botones */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* ❌ Error */
+.error-text {
+    color: #ff4d4d;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* ✨ Animación */
+.form-card {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*fin crear empleados*/
+
+/* 🧾 DETALLE TRANSACCIÓN */
+.detalle-card {
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #f9f7d9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 📋 Tabla */
+.detalle-table {
+    margin-top: 15px;
+}
+
+/* 🏷️ Título */
+.detalle-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 💰 Total */
+.detalle-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.total-amount {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* ✨ Animación */
+.detalle-card {
+    animation: fadeIn 0.5s ease;
+}
+/*fin detalle transacción*/
+
+/*transaccion sospechosa*/
+/* 🚨 CARD PRINCIPAL */
+.ts-card {
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #fef6f6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 🏷️ TITULOS */
+.ts-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.ts-subtitle {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* 📋 TABLA */
+.ts-table {
+    margin-top: 10px;
+}
+
+/* 🎯 FILAS */
+.ts-table tbody tr:hover {
+    background-color: #ffe5e5;
+    transition: 0.2s;
+}
+
+/* 🔘 BOTONES */
+.acciones .btn {
+    margin-right: 5px;
+}
+
+/* 💰 TOTAL RESALTADO */
+.text-danger {
+    color: #e63946 !important;
+}
+
+/* ✨ ANIMACIÓN */
+.ts-card {
+    animation: fadeIn 0.5s ease;
+}
+/*fin de transaccion sospevchosa*/
+/*usuarios*/
+/* 👥 CARD */
+.usuarios-card {
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #f0f9ff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 🧾 HEADER */
+.usuarios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* 📋 TABLA */
+.usuarios-table tbody tr:hover {
+    background-color: #e3f2fd;
+}
+
+/* 🏷️ BADGES */
+.badge-activo {
+    background-color: #a8e6cf;
+    color: #155724;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.badge-inactivo {
+    background-color: #ffaaa5;
+    color: #721c24;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* ✨ ANIMACIÓN */
+.usuarios-card {
+    animation: fadeIn 0.5s ease;
+}
+/*fin de usuarios*/
+
+/*productos vista*/
+.productos-card {
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #f3f8ff;
+}
+
+.productos-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-weight: bold;
+    color: #2a9d8f;
+}
+/*fin productos vista*/

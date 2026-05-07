@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Crear Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+
+    <div class="card form-card">
+        
+        <h2 class="form-title">👤 Crear Empleado</h2>
+        <p class="form-subtitle">Ingresa los datos del nuevo empleado</p>
+
+        <form method="post" asp-action="CrearEmpleado" asp-controller="Admin">
+
+            <div class="mb-3">
+                <label>Nombre</label>
+                <input name="nombre" id="nombre" class="form-control" placeholder="Ej: Juan Pérez" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Correo</label>
+                <input name="correo" id="correo" class="form-control" placeholder="correo@email.com" required />
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input name="password" id="password" type="password" class="form-control" placeholder="********" required />
+            </div>
+
+            <div class="form-buttons">
+                <a href="/Admin/Usuarios" class="btn btn-secondary">
+                    ⬅ Volver
+                </a>
+
+                <button type="submit" class="btn btn-success">
+                    ✅ Crear
+                </button>
+            </div>
+
+            <div id="errorBox">
+                @if (ViewBag.Error != null)
+                {
+                    <p class="error-text">@ViewBag.Error</p>
+                }
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

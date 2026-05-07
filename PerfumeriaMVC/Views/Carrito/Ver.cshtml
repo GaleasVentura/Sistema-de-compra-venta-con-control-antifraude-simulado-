@@ -1,0 +1,40 @@
+@model List<PerfumeriaMVC.Models.CarritoItem>
+
+@{
+    ViewData["Title"] = "Carrito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/carrito.css" />
+
+<h2>🛒 Tu Carrito</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Nombre</td>
+        <td>$@item.Precio</td>
+        <td>@item.Cantidad</td>
+        <td>$@(item.Precio * item.Cantidad)</td>
+        <td>
+            <a asp-controller="Carrito"
+               asp-action="Eliminar"
+               asp-route-id="@item.ProductoId"
+               class="btn btn-danger">
+                ❌
+            </a>
+        </td>
+    </tr>
+}
+
+</table>

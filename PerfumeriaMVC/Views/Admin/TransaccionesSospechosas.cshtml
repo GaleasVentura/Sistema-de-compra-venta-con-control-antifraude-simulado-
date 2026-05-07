@@ -1,0 +1,65 @@
+@model List<PerfumeriaMVC.Models.TransaccionSospechosaViewModel>
+
+<div class="container mt-5">
+
+    <div class="card ts-card">
+
+        <h2 class="ts-title">🚨 Transacciones Sospechosas</h2>
+        <p class="ts-subtitle">Revisión de posibles fraudes detectados</p>
+
+        <table class="table ts-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Motivo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id_compra</td>
+                        <td>@item.id_usuario</td>
+                        <td>@item.fecha_compra.ToShortDateString()</td>
+                        <td class="text-danger fw-bold">$@item.total</td>
+                        <td>@item.motivo</td>
+
+                        <td class="acciones">
+
+                            <a class="btn btn-info btn-sm"
+                               href="@Url.Action("DetalleTransaccion", "Admin", new { id = item.id_compra })">
+                                🔍
+                            </a>
+
+                            <a class="btn btn-warning btn-sm"
+                               onclick="return confirmarAccion('¿Escalar este caso?')"
+                               href="@Url.Action("EscalarCaso", "Admin", new { id = item.id_compra })">
+                                ⚠
+                            </a>
+
+                            <a class="btn btn-success btn-sm"
+                               onclick="return confirmarAccion('¿Aprobar esta compra?')"
+                               href="@Url.Action("AprobarCaso", "Admin", new { id = item.id_compra })">
+                                ✔
+                            </a>
+
+                            <a class="btn btn-danger btn-sm"
+                               onclick="return confirmarAccion('¿Rechazar esta compra?')"
+                               href="@Url.Action("RechazarCaso", "Admin", new { id = item.id_compra })">
+                                ✖
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

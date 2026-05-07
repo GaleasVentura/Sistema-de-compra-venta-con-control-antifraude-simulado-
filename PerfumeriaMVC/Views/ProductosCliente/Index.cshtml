@@ -1,0 +1,45 @@
+@model List<PerfumeriaMVC.Models.Productos>
+
+@{
+    ViewData["Title"] = "Catálogo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/productos.css" />
+
+<header class="text-center mb-3">
+    <h1>Catálogo de Productos</h1>
+</header>
+
+<section class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 mb-3">
+
+            <div class="card p-2 text-center">
+
+                <img src="@Url.Content("~/Imagenes/" + item.imagen_url)" />
+
+                <h5>@item.nombre</h5>
+
+                <p>@item.marca</p>
+
+                <p>$@item.precio.ToString("0.00")</p>
+
+                <a asp-controller="Carrito" asp-action="Agregar" asp-route-id="@item.id_producto" class="btn btn-success">
+                    Agregar al carrito
+                </a>
+
+            </div>
+
+        </div>
+    }
+
+</section>
+
+<footer class="text-center mt-3">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+        Volver al Inicio
+    </a>
+</footer>

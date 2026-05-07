@@ -1,0 +1,70 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfumería Online - Login</title>
+
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- 🖼️ LADO IZQUIERDO -->
+    <div class="login-left">
+        <img src="~/Imagenes/Login.png" alt="Perfumería">
+
+        <div class="overlay">
+            <h1>Perfumería Online</h1>
+            <p>Descubre fragancias únicas 🌸</p>
+        </div>
+    </div>
+
+    <!-- 🔐 LADO DERECHO -->
+    <div class="login-right">
+
+        <form method="post" asp-controller="Account" asp-action="Login" id="loginForm">
+
+            <h2>Iniciar Sesión</h2>
+
+            <div class="input-group">
+                <label>Correo</label>
+                <input type="email" name="correo" id="correo" placeholder="tu@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Contraseña</label>
+                <input type="password" name="password" id="password" placeholder="********" required>
+            </div>
+
+            <button type="submit" class="btn-login">
+                Ingresar
+            </button>
+
+            @if (ViewBag.Error != null)
+            {
+                <p class="error">@ViewBag.Error</p>
+            }
+
+            <div class="extra-links">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <p>¿No tienes cuenta?
+                    <a asp-controller="Account" asp-action="Register">Regístrate</a>
+                </p>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="~/js/login.js"></script>
+
+</body>
+</html>

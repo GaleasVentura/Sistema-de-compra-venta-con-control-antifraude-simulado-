@@ -1,0 +1,56 @@
+@model List<PerfumeriaMVC.Models.Usuario>
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>👥 Gestión de Usuarios</h2>
+
+    <a href="/Admin/Index" class="btn btn-outline-dark">
+        ⬅ Volver al menú
+    </a>
+
+</div>
+<div class="container mt-5">
+
+    <div class="card usuarios-card">
+
+        <div class="usuarios-header">
+            <h2>👥 Gestión de Usuarios</h2>
+
+            <a href="/Admin/CrearEmpleado" class="btn btn-success">
+                ➕ Crear Empleado
+            </a>
+        </div>
+
+        <table class="table usuarios-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>tiene_oferta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    <tr>
+                        <td>@u.id_usuario</td>
+                        <td>@u.nombre</td>
+                        <td>@u.correo</td>
+
+                        <td>
+                            <a class="btn btn-danger btn-sm"
+                               onclick="return confirmarEliminacion()"
+                               href="/Admin/Eliminar/@u.id_usuario">
+                                🗑
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+
+.catalogo-header {
+  text-align: center;
+  padding: 20px;
+  background: #f8f8f8;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+
+.producto {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
